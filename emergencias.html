@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergencias</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffebee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+      width: 320px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #c62828;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 12px 0;
+    }
+
+    a {
+      display: block;
+      padding: 12px;
+      background: #c62828;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+
+    a:hover {
+      background: #8e0000;
+    }
+
+    .back-btn {
+      display: block;
+      margin-top: 20px;
+      padding: 10px;
+      background: #424242;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .back-btn:hover {
+      background: #212121;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Emergencias</h1>
+
+    <ul id="lista-emergencias"></ul>
+
+    <a href="guardia.html" class="back-btn">Volver</a>
+  </div>
+
+  <script>
+    // 📞 NÚMEROS DE EMERGENCIA DIRECTOS EN EL CÓDIGO
+    const emergencias = [
+      { nombre: "Inspectoria General", numero: "989097541", icono: "🚓" },
+      { nombre: "Ambulancia", numero: "131", icono: "🚑" },
+      { nombre: "Bomberos", numero: "132", icono: "🚒" },
+      { nombre: "Carabineros", numero: "133", icono: "🕵️" },
+      { nombre: "Direccion", numero: "988478285", icono: "🏛️" }
+    ];
+
+    function cargarEmergencias() {
+      const lista = document.getElementById("lista-emergencias");
+      lista.innerHTML = "";
+
+      emergencias.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <a href="tel:${item.numero}">
+            ${item.icono} ${item.nombre} (${item.numero})
+          </a>
+        `;
+        lista.appendChild(li);
+      });
+    }
+
+    cargarEmergencias();
+  </script>
+</body>
+</html>
